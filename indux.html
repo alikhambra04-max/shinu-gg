@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+        
+        body {
+            background-image: url('https://formyvalentine.netlify.app/assets/bg1-g2Fo4wL_.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            font-family: 'Pacifico', cursive;
+            color: black;
+        }
+
+        .container {
+            text-align: center;
+        }
+        
+        .gif-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        img {
+            width: 280px;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 40px;
+            font-weight: bold;
+            color: black;
+        }
+
+
+        .btn {
+            font-size: 22px;
+            font-weight: bold;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #yes {
+            background-color: #28a745;
+            color: white;
+        }
+        
+        #no {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        #yes:hover {
+            background-color: #218838;
+        }
+
+        #no:hover {
+            background-color: #c82333;
+        }
+
+        .svg-container {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="svg-container">
+        <img src="dil.svg" alt="Heart SVG">
+    </div>
+    <div class="container">
+        <div class="gif-container">
+            <img src="happy.gif" alt="Cute Bear Gif">
+        </div>
+        <h1>Do you love me?</h1>
+        <div class="buttons">
+            <button id="yes" class="btn">Yes</button>
+            <button id="no" class="btn">No</button>
+            <script>
+                let yesButton = document.getElementById('yes');
+                let noButton = document.getElementById('no');
+                let yesSize = 18;
+                
+                const phrases = [
+                    "No", "Are you sure?", "Really sure?", "Think again!", "Last chance!", 
+                    "Surely not?", "You might regret this!", "Give it another thought!", 
+                    "Are you absolutely certain?", "This could be a mistake!", "Have a heart!", 
+                    "Don't be so cold!", "Change of heart?", "Wouldn't you reconsider?", 
+                    "Is that your final answer?", "You're breaking my heart ;(", 
+                    "Plsss? :( You're breaking my heart"
+                ];
+                
+                let phraseIndex = 0;
+                noButton.addEventListener('click', function() {
+                    yesSize += 10;
+                    yesButton.style.fontSize = yesSize + 'px';
+                    yesButton.style.padding = (yesSize / 2) + 'px ' + (yesSize) + 'px';
+                    
+                    if (phraseIndex < phrases.length - 1) {
+                        phraseIndex++;
+                    }
+                    noButton.innerText = phrases[phraseIndex];
+                });
+                
+                yesButton.addEventListener('click', function() {
+                    window.location.href = "yes.html";
+                });
+            </script>
+        </div>
+    </div>
+</body>
+</html>
